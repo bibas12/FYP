@@ -11,6 +11,8 @@ public class Activator : MonoBehaviour
     GameObject Note, gm;
     public bool createMode;
     public GameObject n;
+    public AudioSource hitSound;
+    public AudioSource missSound;
 
     // Start is called before the first frame update
     void Start()
@@ -30,35 +32,52 @@ public class Activator : MonoBehaviour
         {
             if (Input.GetKeyDown(Key) && active)
             {
-                Destroy(Note);
-                gm.GetComponent<GameManager1>().AddStreak();
-                AddScore();
-                active = false;
+                if (Note != null)
+                {
+                    Destroy(Note);
+                    gm.GetComponent<GameManager1>().AddStreak();
+                    AddScore();
+                    hitSound.PlayOneShot(hitSound.clip);
+                    active = false;
+                }
             }
-            else if (Input.GetKeyDown(Key)&&!active)
+            else if (Input.GetKeyDown(Key) && !active)
             {
                 gm.GetComponent<GameManager1>().ResetStreak();
+                missSound.PlayOneShot(missSound.clip);
             }
         }
     }
+
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
         print("hit");
         active = true;
         if (col.gameObject.tag == "Note")
+        {
             Note = col.gameObject;
+            Debug.Log("Note set to " + Note.name); // added debug statement
+        }
+        
     }
+
+
+
+
+    bool noteMissed = false;
 
     void OnTriggerExit2D(Collider2D col)
     {
-        print("missed");
-        active = false;
+        if (!active || noteMissed) return;
+
+        noteMissed = true;
+        missSound.PlayOneShot(missSound.clip);
         //gm.GetComponent<GameManager1>().ResetStreak();
-
-
     }
-    
+
+
     void AddScore()
     {
         PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + gm.GetComponent<GameManager1>().GetScore());
