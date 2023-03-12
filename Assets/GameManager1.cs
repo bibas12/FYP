@@ -11,7 +11,8 @@ public class GameManager1 : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Score", 0);
-        
+        PlayerPrefs.SetInt("LifeBar", 25);
+
     }
 
     // Update is called once per frame
@@ -27,6 +28,8 @@ public class GameManager1 : MonoBehaviour
 
     public void AddStreak()
     {
+        if(PlayerPrefs.GetInt("LifeBar")+1<50)
+        PlayerPrefs.SetInt("LifeBar", PlayerPrefs.GetInt("LifeBar")+1);
         streak++;
         print(streak);
         if (streak >= 24)
@@ -42,9 +45,18 @@ public class GameManager1 : MonoBehaviour
 
     public void ResetStreak()
     {
+        PlayerPrefs.SetInt("LifeBar", PlayerPrefs.GetInt("LifeBar") - 2);
+        if (PlayerPrefs.GetInt("LifeBar") < 0)
+            Lose();
         streak = 0;
         multiplier = 1;
         UpdateGUI();
+    }
+
+
+    void Lose()
+    {
+        //lose game
     }
 
     void UpdateGUI()

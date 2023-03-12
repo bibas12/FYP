@@ -1,31 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LifeBar : MonoBehaviour
 {
-    public int maxLife = 100;
-    public int damagePerMiss = 20;
-    public int healPerHit = 10;
-    private int currentLife;
-    private Slider slider;
-
+    float rm;
+    GameObject needle;
+    // Start is called before the first frame update
     void Start()
     {
-        slider = GetComponent<Slider>();
-        currentLife = maxLife;
-        slider.maxValue = maxLife;
-        slider.value = maxLife;
+        needle = transform.Find("needle").gameObject;
     }
 
-    public void HitNote()
+    // Update is called once per frame
+    void Update()
     {
-        currentLife = Mathf.Clamp(currentLife + healPerHit, 0, maxLife);
-        slider.value = currentLife;
-    }
+        rm = PlayerPrefs.GetFloat("LifeBar"); // use GetFloat instead of GetInt since LifeMeter is a float
 
-    public void MissNote()
-    {
-        currentLife = Mathf.Clamp(currentLife - damagePerMiss, 0, maxLife);
-        slider.value = currentLife;
+        needle.transform.localPosition = new Vector3((rm - 25) / 25, 0, 0);
     }
 }
