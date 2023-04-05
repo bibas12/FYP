@@ -4,52 +4,29 @@ public class CharacterController : MonoBehaviour
 {
     private Animator animator;
     private bool isPunching;
-    private bool isSecondPunch;
-    private float lastPunchTime;
+    private Rigidbody2D rb;
     public KeyCode KeyToPress;
-
-    public float timeBetweenPunches = 0.5f; // Adjust this value to change the time between punches
+    public float fallSpeed = 10f;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         isPunching = false;
-        isSecondPunch = false;
-        lastPunchTime = -Mathf.Infinity;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyToPress))
+        if (Input.GetKeyDown(KeyToPress) && !isPunching)
         {
-            if (!isPunching && !isSecondPunch)
-            {
-                // Play the first punch animation
-                isPunching = true;
-                animator.SetBool("isPunching", true);
-                lastPunchTime = Time.time;
-                Debug.Log("punch");
-            }
-            else if (isPunching && !isSecondPunch && Time.time - lastPunchTime < timeBetweenPunches)
-            {
-                // Play the second punch animation
-                isPunching = false;
-                isSecondPunch = true;
-                animator.SetBool("isPunching", false);
-                animator.SetBool("isSecondPunch", true);
-            }
+            isPunching = true;
+            animator.SetBool("isPunching1", true);
+            rb.velocity = new Vector2(0, -fallSpeed);
         }
-
-        if (isPunching && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        else if (isPunching && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
             isPunching = false;
-            animator.SetBool("isPunching", false);
-        }
-
-        if (isSecondPunch && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-        {
-            isSecondPunch = false;
-            animator.SetBool("isSecondPunch", false);
+            animator.SetBool("isPunching1", false);
         }
     }
 }
