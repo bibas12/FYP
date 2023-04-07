@@ -1,4 +1,4 @@
-    using System.Collections;
+﻿    using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.UI;
@@ -21,6 +21,7 @@
         public Text scoreText;
         public Text multiText;
         public Text consecutiveMissedNotesText;
+        public Text continousHitText;
 
 
         public int currentMultiplier;
@@ -34,8 +35,9 @@
         public float missedHits;
 
         public int consecutiveMissedNotes;
+        public int continousHit;
 
-
+        public GameObject comboBox;
         public GameObject resultsScreen;
         public Text percentHitText, normalsText, goodText, perfectText, missesText, rankText, finalScoreText;
 
@@ -68,6 +70,7 @@
                 if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
                 {
                     resultsScreen.SetActive(true);
+                    continousHitText.gameObject.SetActive(false);
 
                     normalsText.text = "" + normalHits;
                     goodText.text = goodHits.ToString();
@@ -117,6 +120,11 @@
         // Reset the consecutive missed notes counter
         consecutiveMissedNotes = 0;
 
+        continousHit++;
+
+        continousHitText.gameObject.SetActive(true);
+
+
         if (multiplierThresholds.Length == 0 || currentMultiplier - 1 >= multiplierThresholds.Length)
         {
             // No thresholds defined or max multiplier reached, don't increase multiplier
@@ -136,6 +144,7 @@
         multiText.text = "Multiplier: x" + currentMultiplier;
         scoreText.text = "Score: " + currentScore;
         consecutiveMissedNotesText.text = "Misses: " + consecutiveMissedNotes;
+        continousHitText.text = "Combo: x" + continousHit;
     }
 
 
@@ -162,10 +171,14 @@
             perfectHits++;
         }
 
+    
 
         public void NoteMissed()
         {
-            Debug.Log("Missed Note");
+            Debug.Log("Note Missed");
+
+            continousHit = 0;
+            continousHitText.gameObject.SetActive(false);
 
             consecutiveMissedNotes++;
             consecutiveMissedNotesText.text = "Misses: " + consecutiveMissedNotes;
@@ -194,6 +207,7 @@
 
             // Display a game over screen or perform any other actions you want
             resultsScreen.SetActive(true);
+            continousHitText.gameObject.SetActive(false);
 
             normalsText.text = "" + normalHits;
             goodText.text = goodHits.ToString();
