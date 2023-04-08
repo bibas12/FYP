@@ -65,12 +65,14 @@
                     theMusic.Play();
                 }
             }
-            else
+            //if
             {
                 if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
                 {
-                    resultsScreen.SetActive(true);
+                    
+                    resultsScreen.SetActive(false);
                     continousHitText.gameObject.SetActive(false);
+
 
                     normalsText.text = "" + normalHits;
                     goodText.text = goodHits.ToString();

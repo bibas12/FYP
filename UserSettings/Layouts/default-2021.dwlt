@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 820.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 357.59998
     height: 770.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -128,7 +128,7 @@ MonoBehaviour:
   - {fileID: 13}
   - {fileID: 14}
   m_Selected: 2
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -425,7 +425,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 225538
+  m_LastSelectedObjectID: 40408
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -468,22 +468,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\raiba\Downloads\FYP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0.6000061}
-    m_SelectedIDs: 24900000
-    m_LastClickedID: 36900
-    m_ExpandedIDs: 00000000129000002a90000000ca9a3b
+    m_SelectedIDs: 46670000
+    m_LastClickedID: 26438
+    m_ExpandedIDs: 00000000bc660000be66000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -511,7 +511,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000bc660000be660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,9 +641,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9c9d0400
-      m_LastClickedID: 302492
-      m_ExpandedIDs: 1c12fdff9e15fdff163cfdff1a3cfdff1c3cfdff1850fdff0a54fdff306dfdff346dfdff709efdff54b1fdffecb8fdffeeb8fdffaabbfdffbcbcfdff7edefdff86eafdff12ecfdff54eefdff8aeffdff8cf2fdffe8fcfdffeefcfdff3afffdffac02feff2405feffc40afeff1619feffd425feff4228feffa833feff7c5cfeff3262feffae73feff2077feff488dfeffd48efefffaa7feff4aa8feff0cbafeffccf8feff20fbfeff8cfbfeffd222ffff2625ffff602bffff402cffff942effff3030ffff8432ffffc432ffff2e33ffff7237ffffc639ffffb24bffffb44bffffc451fffff452ffffe05affffa866ffff9e7bfffff27dffff4282ffffdc87ffff1a8dffff32a0ffff48c4ffff9cc6ffffb8c7ffffba1f01002037010092a90100aca9010080c00100b2c00100a2c2010058cd010060cd01006acd010092cd010082cf0100cc6002000661020050c8020060c8020068c8020092c80200a2c802002eec02003eec020068ec0200acec0200deec02000aed020012ed0200acf90200a00d0300780e030076230300ba2b0300a42c0300ca3403004042030006430300266e0300686e0300ae6e0300d66e0300526f03008e6f0300ae72030054740300bc740300804604006a470400765a0400108b0400528b0400c08b0400068c04003c8c04009c9d0400
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2cfbffff96630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -948,9 +948,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 388.75836, y: 201.98419, z: 6.9346457}
+    m_Target: {x: 401.74655, y: 214.01447, z: 6.5364923}
     speed: 2
-    m_Value: {x: 388.75836, y: 201.98419, z: 6.9346457}
+    m_Value: {x: 401.74655, y: 214.01447, z: 6.5364923}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1001,9 +1001,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 282.04437
+    m_Target: 321.85947
     speed: 2
-    m_Value: 282.04437
+    m_Value: 321.85947
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1121,7 +1121,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
