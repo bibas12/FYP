@@ -6,6 +6,7 @@
     public class GameManager : MonoBehaviour
     {
         public AudioSource theMusic;
+        
 
         public bool startPlaying;
 
@@ -41,8 +42,14 @@
         public GameObject resultsScreen;
         public Text percentHitText, normalsText, goodText, perfectText, missesText, rankText, finalScoreText;
 
-        // Start is called before the first frame update
-        void Start()
+        public GameObject gameOverPanel;
+        public AudioClip gameOverSound;
+
+        private AudioSource gameOverAudioSource;
+
+
+    // Start is called before the first frame update
+    void Start()
         {
             instance = this;
 
@@ -50,27 +57,31 @@
             currentMultiplier = 1;
 
             totalNotes = FindObjectsOfType<NoteObject>().Length;
-        }
+
+            gameOverAudioSource = gameOverPanel.GetComponent<AudioSource>();
+            gameOverAudioSource.clip = gameOverSound;
+    }
 
         // Update is called once per frame
         void Update()
         {
             if (!startPlaying)
             {
-                if (Input.anyKeyDown)
-                {
-                    startPlaying = true;
-                    theBS.hasStarted = true;
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                startPlaying = true;
+                theBS.hasStarted = true;
 
-                    theMusic.Play();
-                }
+                theMusic.Play();
             }
-            //if
+
+        }
+        else
             {
                 if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
                 {
                     
-                    resultsScreen.SetActive(false);
+                    resultsScreen.SetActive(true);
                     continousHitText.gameObject.SetActive(false);
 
 
@@ -202,51 +213,15 @@
             }
         }
 
-        void GameOver()
-        {
-            // Pause the music
-            theMusic.Pause();
+    void GameOver()
+    {
+        
+        // Pause the music
+        theMusic.Pause();
 
-            // Display a game over screen or perform any other actions you want
-            resultsScreen.SetActive(true);
-            continousHitText.gameObject.SetActive(false);
+        gameOverAudioSource.Play();
 
-            normalsText.text = "" + normalHits;
-            goodText.text = goodHits.ToString();
-            perfectText.text = perfectHits.ToString();
-            missesText.text = "" + missedHits;
-
-            float totalHit = normalHits + goodHits + perfectHits;
-            float percentHit = (totalHit / totalNotes) * 100f;
-
-            percentHitText.text = percentHit.ToString("F1") + "%";
-
-            string rankVal = "F";
-
-            if (percentHit > 40)
-            {
-                rankVal = "D";
-                if (percentHit > 55)
-                {
-                    rankVal = "C";
-                    if (percentHit > 70)
-                    {
-                        rankVal = "B";
-                        if (percentHit > 85)
-                        {
-                            rankVal = "A";
-                            if (percentHit > 95)
-                            {
-                                rankVal = "S";
-                            }
-                        }
-                    }
-                }
-            }
-
-            rankText.text = rankVal;
-
-            finalScoreText.text = currentScore.ToString();
-        }
-
+        gameOverPanel.SetActive(true);
     }
+
+}
