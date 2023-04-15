@@ -78,9 +78,9 @@
 
     // Update is called once per frame
     void Update()
+    {
+        if (!startPlaying)
         {
-            if (!startPlaying)
-            {
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 startPlaying = true;
@@ -91,56 +91,69 @@
 
         }
         else
+        {
+            if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
             {
-                if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
+
+                resultsScreen.SetActive(true);
+                continousHitText.gameObject.SetActive(false);
+
+
+                normalsText.text = "" + normalHits;
+                goodText.text = goodHits.ToString();
+                perfectText.text = perfectHits.ToString();
+                missesText.text = "" + missedHits;
+
+                float totalHit = normalHits + goodHits + perfectHits;
+                float percentHit = (totalHit / totalNotes) * 100f;
+
+                percentHitText.text = percentHit.ToString("F1") + "%";
+
+                string rankVal = "F";
+
+                if (percentHit > 40)
                 {
-                    
-                    resultsScreen.SetActive(true);
-                    continousHitText.gameObject.SetActive(false);
-
-
-                    normalsText.text = "" + normalHits;
-                    goodText.text = goodHits.ToString();
-                    perfectText.text = perfectHits.ToString();
-                    missesText.text = "" + missedHits;
-
-                    float totalHit = normalHits + goodHits + perfectHits;
-                    float percentHit = (totalHit / totalNotes) * 100f;
-
-                    percentHitText.text = percentHit.ToString("F1") + "%";
-
-                    string rankVal = "F";
-
-                    if (percentHit > 40)
+                    rankVal = "D";
+                    if (percentHit > 55)
                     {
-                        rankVal = "D";
-                        if (percentHit > 55)
+                        rankVal = "C";
+                        if (percentHit > 70)
                         {
-                            rankVal = "C";
-                            if (percentHit > 70)
+                            rankVal = "B";
+                            if (percentHit > 85)
                             {
-                                rankVal = "B";
-                                if(percentHit > 85)
+                                rankVal = "A";
+                                if (percentHit > 95)
                                 {
-                                    rankVal = "A";
-                                    if (percentHit > 95)
-                                    {
-                                        rankVal = "S";
-                                    }
+                                    rankVal = "S";
                                 }
-
                             }
+
                         }
                     }
+                }
 
-                    rankText.text = rankVal;
+                rankText.text = rankVal;
 
-                    finalScoreText.text = currentScore.ToString();
-                    PlayerPrefs.SetInt("FinalScore", currentScore);
+                // Retrieve the existing FinalScore value from Player Prefs
+                int previousScore = PlayerPrefs.GetInt("FinalScore", 0);
+
+                // Add the current score to the previous score
+                int newScore = previousScore + currentScore;
+
+                // Save the new score to the FinalScore key in Player Prefs
+                PlayerPrefs.SetInt("FinalScore", newScore);
+                PlayerPrefs.Save();
+
+                finalScoreText.text = newScore.ToString();
+
+                // Reset the currentScore variable to prevent it from being added to the previous score in future games
+                currentScore = 0;
 
             }
         }
-        }
+    }
+
 
     public void NoteHit()
     {

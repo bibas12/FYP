@@ -34,11 +34,19 @@ public class HighScoreTable : MonoBehaviour
 
         HighScoreEntryList = new List<highScoreEntry>(); // Initialize HighScoreEntryList
 
+        // Load the existing high scores from PlayerPrefs
+        string highScoresJson = PlayerPrefs.GetString("HighScoreTable");
+        if (!string.IsNullOrEmpty(highScoresJson))
+        {
+            HighScores highScores = JsonUtility.FromJson<HighScores>(highScoresJson);
+            HighScoreEntryList = highScores.HighScoreEntryList;
+        }
+
         // Get the FinalScore from PlayerPrefs
         int finalScore = PlayerPrefs.GetInt("FinalScore");
 
         // Add the FinalScore to the high scores list
-        HighScoreEntryList.Add(new highScoreEntry { score = finalScore });
+        AddhighscoreEntry(finalScore);
 
         // Sort the entry list by score
         HighScoreEntryList.Sort((a, b) => b.score.CompareTo(a.score));
@@ -49,13 +57,24 @@ public class HighScoreTable : MonoBehaviour
             CreateHighscoreEntryTransform(HighScoreEntryList[i], entryContainer, HighScoreEntryTransformList, i);
         }
 
-
-        HighScores highScores = new HighScores { HighScoreEntryList = HighScoreEntryList };
-        string json = JsonUtility.ToJson(highScores);
-        PlayerPrefs.SetString("HighScoreTable", json);
+        // Save the updated high score list to PlayerPrefs
+        HighScores updatedHighScores = new HighScores { HighScoreEntryList = HighScoreEntryList };
+        string updatedHighScoresJson = JsonUtility.ToJson(updatedHighScores);
+        PlayerPrefs.SetString("HighScoreTable", updatedHighScoresJson);
         PlayerPrefs.Save();
-        Debug.Log(PlayerPrefs.GetString("HighScoreTable"));    
-        
+
+        Debug.Log(PlayerPrefs.GetString("HighScoreTable"));
+    }
+
+
+    private void LoadHighScoreTable()
+    {
+        string json = PlayerPrefs.GetString("HighScoreTable");
+        if (!string.IsNullOrEmpty(json))
+        {
+            HighScores highScores = JsonUtility.FromJson<HighScores>(json);
+            HighScoreEntryList = highScores.HighScoreEntryList;
+        }
     }
 
     private void CreateHighscoreEntryTransform(highScoreEntry HighScoreEntry, Transform container, List<Transform> transformList, int i)
@@ -87,14 +106,14 @@ public class HighScoreTable : MonoBehaviour
 
     private void AddhighscoreEntry(int score)
     {
-        highScoreEntry highScoreEntry = new highScoreEntry { score = score};
+        highScoreEntry highScoreEntry = new highScoreEntry { score = score };
+        HighScoreEntryList.Add(highScoreEntry);
     }
 
-    
+
     private class HighScores
     {
         public List<highScoreEntry> HighScoreEntryList;
-        
     }
 
     /*
@@ -104,6 +123,5 @@ public class HighScoreTable : MonoBehaviour
     private class highScoreEntry
     {
         public int score;
-        public string name;
     }
 }
