@@ -47,10 +47,14 @@
 
         private AudioSource gameOverAudioSource;
 
+        public HighScoreTable highScoreTable;
+
 
     // Start is called before the first frame update
     void Start()
         {
+            
+
             instance = this;
 
             scoreText.text = "Score: 0";
@@ -58,12 +62,22 @@
 
             totalNotes = FindObjectsOfType<NoteObject>().Length;
 
+            
+
             gameOverAudioSource = gameOverPanel.GetComponent<AudioSource>();
             gameOverAudioSource.clip = gameOverSound;
+
+        if (highScoreTable != null)
+        {
+            highScoreTable.Awake();
+        }
+
+
+
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
         {
             if (!startPlaying)
             {
@@ -122,8 +136,10 @@
                     rankText.text = rankVal;
 
                     finalScoreText.text = currentScore.ToString();
-                }
+                    PlayerPrefs.SetInt("FinalScore", currentScore);
+
             }
+        }
         }
 
     public void NoteHit()

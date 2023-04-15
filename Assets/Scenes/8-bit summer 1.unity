@@ -23843,11 +23843,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1579235906}
   lines:
-  - I woke up in a strange place and I can't see anything.
-  - Its as if I'm blind, I also have no idea where am I or how I got there
-  - I am hearing music. It's the only thing I can hear, but it's enough.
-  - Enemies are coming, but if I follow the rhythm, I can defeat them in sync with
-    the music.
+  - I woke up in a strange place. Hmm...
+  - Where am I? This place am I blind?
+  - What is happening here. I hear some kind of music. Will this help me move on
+    from this dark place?
+  - I also feel like theres no ground beneath me.
+  - I hear something coming towards me. Well time to figure it out.
   textSpeed: 0.05
   audioClip: {fileID: 8300000, guid: 4f35e476fd203bc4cb9ef00b6b08295b, type: 3}
 --- !u!82 &1990081722

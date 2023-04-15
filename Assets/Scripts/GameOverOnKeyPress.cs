@@ -18,7 +18,7 @@ public class GameOverOnKeyPress : MonoBehaviour
                 gameObject.SetActive(false);
 
                 Debug.Log("Special Note Hit");
-                GameManager.instance.consecutiveMissedNotes = 4; // immediately lose the game
+                GameManager.instance.consecutiveMissedNotes = 4; // makes consecutive misses 2 the game
                 GameObject effect = Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
                 Destroy(effect, 0.5f); // Destroy after 0.5 seconds
             }
