@@ -6100,7 +6100,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12636,7 +12636,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15927,6 +15927,10 @@ PrefabInstance:
       propertyPath: theMusic
       value: 
       objectReference: {fileID: 275061439}
+    - target: {fileID: 494658891101469581, guid: f712cecc3b7faff4d83881576d15e58e, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 66355603}
     - target: {fileID: 494658891101469581, guid: f712cecc3b7faff4d83881576d15e58e, type: 3}
       propertyPath: m_Enabled
       value: 1

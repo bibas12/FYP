@@ -15,11 +15,15 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        Debug.Log("Game paused");
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isGamePaused = true;
-        AudioListener.pause = true; // Pause the music
+        AudioListener.pause = true; 
     }
+
+
+
 
     public void Resume()
     {

@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SamuraiTechno.unity
     guid: 78bf96df8b42df446b81c76ddb7260b5
   - enabled: 1
+    path: Assets/Scenes/Adabana Necromancy- 8 bit.unity
+    guid: 752004e6393747a4d9da11bfa35d3d15
+  - enabled: 1
+    path: Assets/Scenes/GameWin.unity
+    guid: e09c7d88c1ecc3444a449044f9076782
+  - enabled: 1
     path: Assets/Scenes/Load_game.unity
     guid: f0b24a0bcd8fb0943bf84a8d27ddbbc8
   - enabled: 1

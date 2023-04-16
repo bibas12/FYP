@@ -49,6 +49,8 @@
 
         public HighScoreTable highScoreTable;
 
+        public GameObject PauseMenu;
+
 
     // Start is called before the first frame update
     void Start()
@@ -92,12 +94,12 @@
         }
         else
         {
-            if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
+            if (!theMusic.isPlaying && !resultsScreen.activeInHierarchy && !PauseMenu.activeInHierarchy)
+
             {
 
                 resultsScreen.SetActive(true);
                 continousHitText.gameObject.SetActive(false);
-
 
                 normalsText.text = "" + normalHits;
                 goodText.text = goodHits.ToString();
@@ -153,6 +155,10 @@
             }
         }
     }
+
+
+
+
 
 
     public void NoteHit()
