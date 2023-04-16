@@ -2956,6 +2956,7 @@ GameObject:
   - component: {fileID: 439779317}
   - component: {fileID: 439779319}
   - component: {fileID: 439779318}
+  - component: {fileID: 439779320}
   m_Layer: 5
   m_Name: Results
   m_TagString: Untagged
@@ -3028,6 +3029,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439779316}
   m_CullTransparentMesh: 0
+--- !u!114 &439779320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439779316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce00d6a112cd384d80ce04e3e16882c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &449289996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6838,6 +6851,7 @@ GameObject:
   - component: {fileID: 1010571510}
   - component: {fileID: 1010571509}
   - component: {fileID: 1010571512}
+  - component: {fileID: 1010571513}
   m_Layer: 5
   m_Name: Save button
   m_TagString: Untagged
@@ -6910,10 +6924,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 944401380}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Restart
-        m_Mode: 3
+      - m_Target: {fileID: 439779320}
+        m_TargetAssemblyTypeName: LevelButton, Assembly-CSharp
+        m_MethodName: Pass
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6974,6 +6988,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 8300000, guid: d8f49ad94defd7545885c67a319af231, type: 3}
   volume: 0.1
+--- !u!114 &1010571513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010571507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561b0e1a1cdf8884096cf4163cb38068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToUnlock: 6
 --- !u!1 &1049062720
 GameObject:
   m_ObjectHideFlags: 0
