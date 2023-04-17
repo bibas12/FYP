@@ -51,8 +51,11 @@ public class HighScoreTable : MonoBehaviour
         // Sort the entry list by score
         HighScoreEntryList.Sort((a, b) => b.score.CompareTo(a.score));
 
+        // Get the total number of entries to show (maximum 6)
+        int numEntriesToShow = Mathf.Min(HighScoreEntryList.Count, 6);
+
         HighScoreEntryTransformList = new List<Transform>();
-        for (int i = 0; i < HighScoreEntryList.Count; i++)
+        for (int i = 0; i < numEntriesToShow; i++)
         {
             CreateHighscoreEntryTransform(HighScoreEntryList[i], entryContainer, HighScoreEntryTransformList, i);
         }
