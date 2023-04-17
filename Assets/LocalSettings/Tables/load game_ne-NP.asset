@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: load game_ne-NP
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ne-NP
+  m_SharedData: {fileID: 11400000, guid: 1040c7ed03a663241b55015dde64dec6, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 40148066304
+    m_Localized: "\u0916\u0947\u0932 \u0932\u094B\u0921 \u0916\u0947\u0932\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 334747590656
+    m_Localized: "\u0938\u094D\u0924\u09301"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 749862051840
+    m_Localized: "\u0938\u094D\u0924\u09302"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 977654702080
+    m_Localized: "\u0938\u094D\u0924\u09303"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1120558833664
+    m_Localized: "\u0938\u094D\u0924\u09304"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1285415952384
+    m_Localized: "\u0938\u094D\u0924\u09305"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6c8c1dd1602a1eb4facbfeffdf12ed86
+  m_SerializeEntries:
+  - m_GUID: 97ec72828cc2cd949a24c811cbc937b3
+    m_Address: Assets/LocalSettings/Tables/StringExampleTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 04a04ea1cf1496046ad1835085be055a
+    m_Address: Assets/LocalSettings/Tables/mainmenu Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 54b3ecebe082b9e40bde33e2c3b91944
+    m_Address: Assets/LocalSettings/Tables/playerName Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 805fbcf4091932f4f81e9964a21e2399
+    m_Address: Assets/LocalSettings/Tables/inventory Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: aac53252b8d5be14b894a3a81b091c2a
+    m_Address: Assets/LocalSettings/Tables/highscores Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 1040c7ed03a663241b55015dde64dec6
+    m_Address: Assets/LocalSettings/Tables/load game Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 84df417a5a74be043a0815e38d30a81e
+    m_Address: Assets/LocalSettings/Tables/caipirinha Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 979fdc09c66572746b896d030bb8358f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 04e001570e1979942a1cd6c2e131c123, type: 2}
+    - {fileID: 11400000, guid: eaaa115684144394091e97dcbc22a958, type: 2}
